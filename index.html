@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repuestos Usados Belén | Repuestos usados 2017+ en Heredia, Costa Rica</title>
+<meta name="description" content="Repuestos usados para vehículos 2017 en adelante. Toyota, Honda, Nissan, Hyundai, Kia, BYD y más. Ubicados en Belén, Heredia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F7701D;
+    --orange-dark:#c8570f;
+    --bg:#111214;
+    --bg-alt:#17181b;
+    --bg-card:#1e2023;
+    --border:#2c2e33;
+    --text:#eceded;
+    --text-dim:#9a9ca3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.headline{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.5px;
+    line-height:1.05;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 20px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--orange);
+    color:#141414;
+    font-weight:700;
+    padding:12px 22px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:15px;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--orange-dark);}
+  .btn-outline{
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--text);
+  }
+  .btn-outline:hover{border-color:var(--orange);color:var(--orange);background:transparent;}
+  .section-tag{
+    color:var(--orange);
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+    display:block;
+  }
+  .section-title{font-size:40px;margin-bottom:14px;}
+  .section-sub{color:var(--text-dim);max-width:560px;margin-bottom:36px;font-size:15px;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(17,18,20,0.96);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(6px);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;max-width:1180px;margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .hex{
+    width:38px;height:38px;
+    background:var(--orange);
+    clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Bebas Neue',sans-serif;
+    color:#141414;font-size:18px;font-weight:700;flex-shrink:0;
+  }
+  .logo-text{font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:1;letter-spacing:0.5px;}
+  .logo-text span{display:block;font-family:'Inter',sans-serif;font-size:10px;color:var(--text-dim);letter-spacing:1.5px;font-weight:600;text-transform:uppercase;margin-top:2px;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-links{display:none;}
+  @media(min-width:800px){
+    .nav-links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--text-dim);}
+    .nav-links a:hover{color:var(--orange);}
+  }
+
+  /* HERO */
+  .hero{
+    padding:70px 0 50px;
+    background:
+      linear-gradient(180deg, rgba(17,18,20,0.55), rgba(17,18,20,0.95)),
+      url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=70') center/cover no-repeat;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-inner{max-width:720px;}
+  .hero-badge{
+    display:inline-block;background:rgba(247,112,29,0.12);
+    border:1px solid rgba(247,112,29,0.4);
+    color:var(--orange);font-size:13px;font-weight:700;
+    padding:6px 14px;border-radius:30px;margin-bottom:18px;
+    letter-spacing:0.5px;
+  }
+  .hero h1{font-size:58px;color:#fff;margin-bottom:16px;}
+  .hero h1 em{font-style:normal;color:var(--orange);}
+  .hero p{color:#cfd1d4;font-size:17px;max-width:520px;margin-bottom:28px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px;}
+  .hero-note{
+    display:flex;align-items:center;gap:10px;
+    color:var(--text-dim);font-size:13px;
+    border-left:3px solid var(--orange);padding-left:12px;
+  }
+  @media(max-width:700px){.hero h1{font-size:42px;}}
+
+  /* BRANDS BAR */
+  .brands{
+    background:var(--bg-alt);
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  .brands-inner{
+    display:flex;gap:36px;padding:0 20px;
+    max-width:1180px;margin:0 auto;
+    align-items:center;
+  }
+  .brands-label{color:var(--orange);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;flex-shrink:0;}
+  .brands span.brand{
+    color:var(--text-dim);font-weight:700;font-size:15px;flex-shrink:0;
+    text-transform:uppercase;letter-spacing:0.5px;
+  }
+
+  /* STEPS */
+  .steps{padding:80px 0;border-bottom:1px solid var(--border);}
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+  .step-card{
+    background:var(--bg-card);border:1px solid var(--border);
+    border-radius:6px;padding:26px;
+  }
+  .step-num{
+    font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--orange);
+    margin-bottom:10px;
+  }
+  .step-card h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;}
+  .step-card p{color:var(--text-dim);font-size:14px;}
+
+  /* SEARCH + TABS */
+  .catalog{padding:80px 0;border-bottom:1px solid var(--border);}
+  .search-bar{
+    display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap;
+  }
+  .search-bar input{
+    flex:1;min-width:220px;
+    background:var(--bg-card);border:1px solid var(--border);
+    color:var(--text);padding:13px 16px;border-radius:4px;font-size:15px;
+    font-family:'Inter',sans-serif;
+  }
+  .search-bar input:focus{outline:none;border-color:var(--orange);}
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;
+  }
+  .tab-btn{
+    background:transparent;border:1px solid var(--border);
+    color:var(--text-dim);padding:9px 16px;border-radius:30px;
+    font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;
+  }
+  .tab-btn:hover{border-color:var(--orange);color:var(--text);}
+  .tab-btn.active{background:var(--orange);border-color:var(--orange);color:#141414;}
+
+  .parts-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:22px;
+  }
+  .part-card{
+    background:var(--bg-card);border:1px solid var(--border);
+    border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
+  }
+  .part-img{height:170px;overflow:hidden;background:#000;}
+  .part-img img{width:100%;height:100%;object-fit:cover;}
+  .part-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .part-cat{color:var(--orange);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+  .part-body h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;}
+  .part-brands{color:var(--text-dim);font-size:13px;flex:1;}
+  .no-results{color:var(--text-dim);padding:40px 0;text-align:center;grid-column:1/-1;}
+
+  /* FORM */
+  .form-section{padding:80px 0;border-bottom:1px solid var(--border);background:var(--bg-alt);}
+  .form-wrap{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+    padding:36px;max-width:760px;margin:0 auto;
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-grid .full{grid-column:1/-1;}
+  @media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
+  label{display:block;font-size:13px;font-weight:600;color:var(--text-dim);margin-bottom:6px;}
+  input,select,textarea{
+    width:100%;background:var(--bg);border:1px solid var(--border);
+    color:var(--text);padding:12px 14px;border-radius:4px;font-size:14px;
+    font-family:'Inter',sans-serif;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);}
+  textarea{resize:vertical;min-height:90px;}
+  .field{margin-bottom:4px;}
+  .form-wrap .btn{width:100%;justify-content:center;margin-top:20px;padding:14px;font-size:16px;}
+
+  /* TRUST */
+  .trust{padding:80px 0;}
+  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+  .trust-card{text-align:center;padding:30px 20px;}
+  .trust-icon{
+    width:56px;height:56px;margin:0 auto 18px;
+    background:rgba(247,112,29,0.12);border:1px solid rgba(247,112,29,0.4);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:var(--orange);font-size:24px;
+  }
+  .trust-card h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;}
+  .trust-card p{color:var(--text-dim);font-size:14px;}
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--border);padding:40px 0;
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
+    align-items:center;
+  }
+  footer .foot-brand{font-family:'Bebas Neue',sans-serif;font-size:20px;}
+  footer .foot-loc{color:var(--text-dim);font-size:13px;margin-top:4px;}
+  .foot-hidden-btn{
+    background:none;border:none;color:var(--bg);cursor:default;font-size:10px;
+    padding:4px;
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:200;
+    background:#25D366;width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    border:none;cursor:pointer;
+  }
+  .wa-float svg{width:30px;height:30px;fill:#fff;}
+
+  /* ADMIN MODAL */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.75);
+    display:none;align-items:center;justify-content:center;z-index:300;padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+    max-width:960px;width:100%;max-height:85vh;overflow:auto;padding:28px;
+  }
+  .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:10px;flex-wrap:wrap;}
+  .modal-header h2{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;}
+  .modal-close{background:none;border:1px solid var(--border);color:var(--text-dim);width:34px;height:34px;border-radius:4px;cursor:pointer;font-size:18px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);}
+  th{color:var(--orange);text-transform:uppercase;font-size:11px;letter-spacing:1px;}
+  td{color:var(--text-dim);}
+  .btn-danger{background:#c0392b;color:#fff;}
+  .btn-danger:hover{background:#992d22;}
+  .empty-state{color:var(--text-dim);padding:30px 0;text-align:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <div class="hex">RB</div>
+      <div class="logo-text">REPUESTOS BELÉN
+        <span>Repuestos usados 2017+</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#como-comprar">Cómo comprar</a>
+      <a href="#consulta">Consulta</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn" id="navWhatsapp" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="hero-badge">Belén, Heredia — Costa Rica</span>
+    <h1>Repuestos usados <em>que sí encajan</em> en tu carro.</h1>
+    <p>Trabajamos exclusivamente con vehículos modelo 2017 en adelante. Marcas asiáticas y de mayor rotación en el mercado costarricense, piezas revisadas y entrega coordinada en Belén.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn">Ver catálogo</a>
+      <a href="#consulta" class="btn btn-outline">Hacer una consulta</a>
+    </div>
+    <div class="hero-note">Solo trabajamos modelos 2017 en adelante. No manejamos marcas europeas.</div>
+  </div>
+</section>
+
+<div class="brands">
+  <div class="brands-inner" id="brandsBar"></div>
+</div>
+
+<section class="steps" id="como-comprar">
+  <div class="container">
+    <span class="section-tag">Cómo comprar</span>
+    <h2 class="section-title">Tres pasos, sin complicaciones</h2>
+    <p class="section-sub">Del catálogo a tu taller sin vueltas innecesarias.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Buscá el repuesto</h3>
+        <p>Filtrá por categoría o buscá por nombre y marca en nuestro catálogo.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Consultá por WhatsApp</h3>
+        <p>Enviamos precio, disponibilidad y estado real de la pieza al momento.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Coordinamos entrega</h3>
+        <p>Retiro en Belén o coordinación de envío según tu ubicación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalogo">
+  <div class="container">
+    <span class="section-tag">Catálogo</span>
+    <h2 class="section-title">Repuestos disponibles</h2>
+    <p class="section-sub">Vehículos 2017 en adelante. Precios se confirman por WhatsApp según disponibilidad al momento.</p>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar por nombre del repuesto o marca (ej: alternador, Toyota...)">
+    </div>
+
+    <div class="tabs" id="tabsBar"></div>
+
+    <div class="parts-grid" id="partsGrid"></div>
+  </div>
+</section>
+
+<section class="form-section" id="consulta">
+  <div class="container">
+    <span class="section-tag">Consulta directa</span>
+    <h2 class="section-title">¿No encontrás lo que buscás?</h2>
+    <p class="section-sub">Contanos qué necesitás y te respondemos por WhatsApp con precio y disponibilidad.</p>
+    <div class="form-wrap">
+      <form id="consultaForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-nombre">Nombre completo *</label>
+            <input type="text" id="f-nombre" required>
+          </div>
+          <div class="field">
+            <label for="f-telefono">Teléfono *</label>
+            <input type="tel" id="f-telefono" required placeholder="8888-8888">
+          </div>
+          <div class="field">
+            <label for="f-marca">Marca del vehículo *</label>
+            <input type="text" id="f-marca" required placeholder="Toyota, Hyundai, Kia...">
+          </div>
+          <div class="field">
+            <label for="f-anio">Año *</label>
+            <input type="number" id="f-anio" required min="2017" max="2027" placeholder="2019">
+          </div>
+          <div class="field">
+            <label for="f-modelo">Modelo *</label>
+            <input type="text" id="f-modelo" required placeholder="Corolla, Tucson, Rio...">
+          </div>
+          <div class="field">
+            <label for="f-chasis">Número de chasis (opcional)</label>
+            <input type="text" id="f-chasis" placeholder="VIN / chasis">
+          </div>
+          <div class="field full">
+            <label for="f-descripcion">Descripción del repuesto *</label>
+            <textarea id="f-descripcion" required placeholder="Ej: Necesito un radiador para Kia Rio 2019, estado del original: golpeado"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn">Enviar consulta por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <span class="section-tag">Confianza</span>
+    <h2 class="section-title">Por qué comprar con nosotros</h2>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">&#10003;</div>
+        <h3>Piezas revisadas</h3>
+        <p>Cada repuesto se inspecciona antes de ponerlo a la venta.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">&#9889;</div>
+        <h3>Respuesta rápida</h3>
+        <p>Contestamos consultas de WhatsApp en cuestión de minutos.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">&#128205;</div>
+        <h3>Local en Belén</h3>
+        <p>Ubicados en Belén, Heredia. Retiro directo o coordinación de entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;">
+    <div>
+      <div class="foot-brand" id="footerLogo">REPUESTOS USADOS BELÉN</div>
+      <div class="foot-loc">Belén, Heredia, Costa Rica</div>
+    </div>
+    <div class="foot-loc">&copy; <span id="year"></span> Repuestos Usados Belén. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="wa-float" id="floatWhatsapp" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 4.35 1.13h.01a8.94 8.94 0 0 0 8.94-8.93 8.87 8.87 0 0 0-2.4-5.6zm-5.55 13.7h-.01a7.4 7.4 0 0 1-3.77-1.03l-.27-.16-2.8.97.94-2.73-.18-.28a7.42 7.42 0 0 1 11.55-9.14 7.35 7.35 0 0 1 2.18 5.25 7.42 7.42 0 0 1-7.64 7.12zm4.07-5.56c-.22-.11-1.31-.65-1.52-.72s-.35-.11-.5.11-.58.72-.71.87-.26.17-.48.06a6.06 6.06 0 0 1-1.78-1.1 6.65 6.65 0 0 1-1.23-1.53c-.13-.22 0-.34.1-.45s.22-.26.33-.39a1.5 1.5 0 0 0 .22-.37.4.4 0 0 0 0-.39c-.06-.11-.5-1.2-.68-1.65s-.36-.38-.5-.39h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86 4.35 4.35 0 0 0 .91 2.3 9.95 9.95 0 0 0 3.81 3.37c.53.23.95.37 1.27.47a3.05 3.05 0 0 0 1.4.09 2.3 2.3 0 0 0 1.5-1.06 1.86 1.86 0 0 0 .13-1.06c-.06-.1-.2-.16-.42-.27z"/></svg>
+</a>
+
+<div class="modal-overlay" id="adminModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Panel Admin — Consultas registradas</h2>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-danger" id="clearHistory" style="padding:8px 14px;">Borrar historial</button>
+        <button class="modal-close" id="closeAdmin">&times;</button>
+      </div>
+    </div>
+    <div id="adminTableWrap"></div>
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "50684168677";
+
+const BRANDS = ["Toyota","Honda","Nissan","Mitsubishi","Suzuki","Mazda","Isuzu","Hyundai","Kia","Chevrolet","BYD","Omoda","JAECOO","Chery","MG","GWM","GAC","Haval","JAC","Geely","Changan"];
+
+const PARTS = [
+  {name:"Motor completo 2.0L", cat:"Motor", brands:"Toyota, Honda, Mazda", img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=500&q=70"},
+  {name:"Turbo compresor", cat:"Motor", brands:"Hyundai, Kia, Chevrolet", img:"https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=500&q=70"},
+  {name:"Bomba de aceite", cat:"Motor", brands:"Nissan, Mitsubishi", img:"https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=500&q=70"},
+  {name:"Culata (cabezote)", cat:"Motor", brands:"Toyota, Suzuki", img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=70"},
+  {name:"Alternador", cat:"Motor", brands:"Honda, Kia, GAC", img:"https://images.unsplash.com/photo-1486684228390-cb5d0e5c9b3d?auto=format&fit=crop&w=500&q=70"},
+  {name:"Kit de distribución", cat:"Motor", brands:"Mazda, Isuzu", img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Amortiguadores delanteros", cat:"Suspensión", brands:"Toyota, Nissan", img:"https://images.unsplash.com/photo-1632823469850-1b7b1e8b7e70?auto=format&fit=crop&w=500&q=70"},
+  {name:"Muelles / resortes", cat:"Suspensión", brands:"Honda, Hyundai", img:"https://images.unsplash.com/photo-1621996659490-3f0f3e0b0b0b?auto=format&fit=crop&w=500&q=70"},
+  {name:"Rótulas de suspensión", cat:"Suspensión", brands:"Kia, Chevrolet", img:"https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=500&q=70"},
+  {name:"Brazos de control", cat:"Suspensión", brands:"Mitsubishi, Suzuki", img:"https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=500&q=70"},
+  {name:"Bujes de suspensión", cat:"Suspensión", brands:"GWM, Haval, JAC", img:"https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=500&q=70"},
+  {name:"Barra estabilizadora", cat:"Suspensión", brands:"Mazda, BYD", img:"https://images.unsplash.com/photo-1592840062661-a5a7f78e2056?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Discos de freno delanteros", cat:"Frenos", brands:"Toyota, Honda, Kia", img:"https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=500&q=70"},
+  {name:"Pastillas de freno", cat:"Frenos", brands:"Nissan, Hyundai", img:"https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=500&q=70"},
+  {name:"Caliper de freno", cat:"Frenos", brands:"Mitsubishi, Chevrolet", img:"https://images.unsplash.com/photo-1486754735734-325b5831c3ad?auto=format&fit=crop&w=500&q=70"},
+  {name:"Bomba de freno (master)", cat:"Frenos", brands:"Suzuki, Mazda", img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=70"},
+  {name:"Cables de freno de mano", cat:"Frenos", brands:"Geely, Changan, MG", img:"https://images.unsplash.com/photo-1621996659490-3f0f3e0b0b0b?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Módulo ECU", cat:"Eléctrico", brands:"Toyota, Honda", img:"https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=500&q=70"},
+  {name:"Arnés de motor", cat:"Eléctrico", brands:"Nissan, Kia", img:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=70"},
+  {name:"Motor de arranque", cat:"Eléctrico", brands:"Hyundai, Mitsubishi", img:"https://images.unsplash.com/photo-1486684228390-cb5d0e5c9b3d?auto=format&fit=crop&w=500&q=70"},
+  {name:"Panel de instrumentos", cat:"Eléctrico", brands:"Chevrolet, Suzuki", img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=70"},
+  {name:"Faros LED delanteros", cat:"Eléctrico", brands:"BYD, Omoda, JAECOO", img:"https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Caja de cambios automática", cat:"Transmisión", brands:"Toyota, Mazda", img:"https://images.unsplash.com/photo-1632823469850-1b7b1e8b7e70?auto=format&fit=crop&w=500&q=70"},
+  {name:"Embrague completo", cat:"Transmisión", brands:"Honda, Kia, Isuzu", img:"https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=500&q=70"},
+  {name:"Semiejes / homocinéticas", cat:"Transmisión", brands:"Nissan, Hyundai, GAC", img:"https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=500&q=70"},
+  {name:"Diferencial trasero", cat:"Transmisión", brands:"Chevrolet, Chery", img:"https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Radiador de agua", cat:"Enfriamiento", brands:"Toyota, Nissan, Suzuki", img:"https://images.unsplash.com/photo-1621996659490-3f0f3e0b0b0b?auto=format&fit=crop&w=500&q=70"},
+  {name:"Bomba de agua", cat:"Enfriamiento", brands:"Honda, Mitsubishi", img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=70"},
+  {name:"Ventilador de radiador", cat:"Enfriamiento", brands:"Kia, Hyundai, MG", img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=500&q=70"},
+  {name:"Termostato", cat:"Enfriamiento", brands:"Mazda, GWM, Haval", img:"https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=500&q=70"},
+
+  {name:"Capó (cofre)", cat:"Carrocería", brands:"Toyota, Kia", img:"https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=500&q=70"},
+  {name:"Puerta delantera derecha", cat:"Carrocería", brands:"Honda, Hyundai", img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=70"},
+  {name:"Parachoques delantero", cat:"Carrocería", brands:"Nissan, Chevrolet, JAC", img:"https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=500&q=70"},
+  {name:"Espejo lateral", cat:"Carrocería", brands:"Mitsubishi, Suzuki, Changan", img:"https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=500&q=70"},
+];
+
+const CATEGORIES = ["Todos","Motor","Suspensión","Frenos","Eléctrico","Transmisión","Enfriamiento","Carrocería"];
+
+let activeCat = "Todos";
+let searchTerm = "";
+
+function waLink(message){
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function renderBrands(){
+  const bar = document.getElementById('brandsBar');
+  bar.innerHTML = '<span class="brands-label">Marcas que manejamos</span>' +
+    BRANDS.map(b => `<span class="brand">${b}</span>`).join('');
+}
+
+function renderTabs(){
+  const tabsBar = document.getElementById('tabsBar');
+  tabsBar.innerHTML = CATEGORIES.map(cat =>
+    `<button class="tab-btn${cat===activeCat?' active':''}" data-cat="${cat}">${cat}</button>`
+  ).join('');
+  tabsBar.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeCat = btn.dataset.cat;
+      renderTabs();
+      renderParts();
+    });
+  });
+}
+
+function renderParts(){
+  const grid = document.getElementById('partsGrid');
+  const term = searchTerm.trim().toLowerCase();
+  const filtered = PARTS.filter(p=>{
+    const matchesCat = activeCat === "Todos" || p.cat === activeCat;
+    const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.brands.toLowerCase().includes(term);
+    return matchesCat && matchesSearch;
+  });
+
+  if(filtered.length === 0){
+    grid.innerHTML = '<div class="no-results">No encontramos repuestos con ese criterio. Probá con otra búsqueda o hacé una consulta directa.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p=>{
+    const msg = `Hola, quiero consultar precio y disponibilidad de este repuesto:\n\n• Repuesto: ${p.name}\n• Categoría: ${p.cat}\n• Marcas compatibles: ${p.brands}\n\n¿Me confirman disponibilidad?`;
+    return `
+    <div class="part-card">
+      <div class="part-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="part-body">
+        <span class="part-cat">${p.cat}</span>
+        <h3>${p.name}</h3>
+        <div class="part-brands">Compatible: ${p.brands}</div>
+        <a class="btn" target="_blank" rel="noopener" href="${waLink(msg)}">Consultar precio</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  searchTerm = e.target.value;
+  renderParts();
+});
+
+// Header / float WhatsApp generic links
+const generalMsg = "Hola, quisiera consultar sobre repuestos usados para mi vehículo.";
+document.getElementById('navWhatsapp').href = waLink(generalMsg);
+document.getElementById('floatWhatsapp').href = waLink(generalMsg);
+
+// ---- Form ----
+const STORAGE_KEY = "repuestosBelenConsultas";
+
+function getConsultas(){
+  try{
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  }catch(e){
+    return [];
+  }
+}
+
+function saveConsulta(consulta){
+  const all = getConsultas();
+  all.unshift(consulta);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+}
+
+document.getElementById('consultaForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const nombre = document.getElementById('f-nombre').value.trim();
+  const telefono = document.getElementById('f-telefono').value.trim();
+  const marca = document.getElementById('f-marca').value.trim();
+  const anio = document.getElementById('f-anio').value.trim();
+  const modelo = document.getElementById('f-modelo').value.trim();
+  const chasis = document.getElementById('f-chasis').value.trim();
+  const descripcion = document.getElementById('f-descripcion').value.trim();
+
+  const consulta = {
+    fecha: new Date().toLocaleString('es-CR'),
+    nombre, telefono, marca, anio, modelo, chasis, descripcion
+  };
+  saveConsulta(consulta);
+
+  let msg = `Hola, quiero hacer una consulta de repuesto:\n\n`;
+  msg += `• Nombre: ${nombre}\n`;
+  msg += `• Teléfono: ${telefono}\n`;
+  msg += `• Vehículo: ${marca} ${modelo} ${anio}\n`;
+  if(chasis) msg += `• Chasis: ${chasis}\n`;
+  msg += `• Repuesto: ${descripcion}`;
+
+  window.open(waLink(msg), '_blank');
+  e.target.reset();
+});
+
+// ---- Admin panel (5 clicks on footer logo) ----
+let clickCount = 0;
+let clickTimer = null;
+const footerLogo = document.getElementById('footerLogo');
+footerLogo.style.cursor = 'default';
+footerLogo.addEventListener('click', ()=>{
+  clickCount++;
+  clearTimeout(clickTimer);
+  clickTimer = setTimeout(()=>{ clickCount = 0; }, 1500);
+  if(clickCount >= 5){
+    clickCount = 0;
+    openAdmin();
+  }
+});
+
+function openAdmin(){
+  renderAdminTable();
+  document.getElementById('adminModal').classList.add('open');
+}
+function closeAdmin(){
+  document.getElementById('adminModal').classList.remove('open');
+}
+document.getElementById('closeAdmin').addEventListener('click', closeAdmin);
+document.getElementById('adminModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'adminModal') closeAdmin();
+});
+
+function renderAdminTable(){
+  const wrap = document.getElementById('adminTableWrap');
+  const consultas = getConsultas();
+  if(consultas.length === 0){
+    wrap.innerHTML = '<div class="empty-state">No hay consultas registradas todavía.</div>';
+    return;
+  }
+  wrap.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th><th>Nombre</th><th>Teléfono</th><th>Vehículo</th><th>Repuesto solicitado</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${consultas.map(c=>`
+          <tr>
+            <td>${c.fecha}</td>
+            <td>${c.nombre}</td>
+            <td>${c.telefono}</td>
+            <td>${c.marca} ${c.modelo} ${c.anio}</td>
+            <td>${c.descripcion}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+document.getElementById('clearHistory').addEventListener('click', ()=>{
+  if(confirm('¿Seguro que querés borrar todo el historial de consultas?')){
+    localStorage.removeItem(STORAGE_KEY);
+    renderAdminTable();
+  }
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+renderBrands();
+renderTabs();
+renderParts();
+</script>
+</body>
+</html>
